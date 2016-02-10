@@ -1,8 +1,10 @@
 import template from 'babel-template'
 import * as t from 'babel-types'
 
+const isProduction = process.env.NODE_ENV === 'production'
+
 const splitClassesGenerator = (() => {
-  if (process.env.NODE_ENV === 'production') {
+  if (isProduction) {
     return template(`SOURCE.split(' ').map(c => STYLES[c]).join(' ')`)
   }
   return template(`(function () {
@@ -38,11 +40,11 @@ const getExpressionsFromClassList = classList => {
 
 
 const getValue = path => {
-  if (path.node.value.type === 'StringLiteral') {
+  if (isProduction && path.node.value.type === 'StringLiteral') {
     return getExpressionsFromClassList(path.node.value.value)
   }
   const ast = splitClassesGenerator({
-    SOURCE: path.node.value.expression,
+    SOURCE: path.node.value.expression || path.node.value,
     CLASSES: path.scope.generateUidIdentifier('classes'),
     STYLES: t.identifier('styles'),
   })
