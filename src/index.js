@@ -1,20 +1,18 @@
 import template from 'babel-template'
 import * as t from 'babel-types'
 
-console.log(process.env.NODE_ENV)
-
 const splitClassesGenerator = (() => {
   if (process.env.NODE_ENV === 'production') {
-    return template(`SOURCE.split(' ').map(c => styles[c]).join(' ')`)
+    return template(`SOURCE.split(' ').map(c => STYLES[c]).join(' ')`)
   }
   return template(`(function () {
-    var classes1 = SOURCE.split(' ')
-    classes1.forEach(function (className) {
-      if (Object.keys(styles).indexOf(className) === -1) {
+    var CLASSES = SOURCE.split(' ')
+    CLASSES.forEach(function (className) {
+      if (Object.keys(STYLES).indexOf(className) === -1) {
         console.warn('Class ' + className + ' is not specified in your css file')
       }
     })
-    return classes1.map(c => styles[c]).join(' ')
+    return CLASSES.map(c => STYLES[c]).join(' ')
   })()`)
 })()
 
@@ -45,11 +43,14 @@ const getValue = path => {
   }
   const ast = splitClassesGenerator({
     SOURCE: path.node.value.expression,
+    CLASSES: path.scope.generateUidIdentifier('classes'),
+    STYLES: t.identifier('styles'),
   })
   return ast.expression
 }
 
 const JSXAttributeVisitor = path => {
+  path.traverse({ JSXAttribute: JSXAttributeVisitor })
   if (path.node.name.name !== 'styleName') return
   path.node.name.name = 'className'
 
