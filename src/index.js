@@ -29,15 +29,22 @@ const getExpressionFromClass = className => {
   )
 }
 
+const reduceBinaryExression = (exp, className) => {
+  return t.binaryExpression(
+    '+',
+    exp,
+    getExpressionFromClass(className)
+  )
+}
+
+const emptyStringsFilter = str => str !== ''
+
 const getExpressionsFromClassList = classList => {
-  const classes = classList.split(' ').filter(c => c) // filter ''
-  return classes.slice(1).reduce((exp, cl) => {
-    return t.binaryExpression(
-      '+',
-      exp,
-      getExpressionFromClass(cl)
-    )
-  }, getExpressionFromClass(classes[0]))
+  const classes = classList.split(' ').filter(emptyStringsFilter)
+  return classes.slice(1).reduce(
+    reduceBinaryExression,
+    getExpressionFromClass(classes[0])
+  )
 }
 
 
@@ -62,10 +69,11 @@ const getClassesWithGlobal = (classesCompositionExpression, globalClasses) => {
   )
 }
 
+const findClassNameAttribute = attrNode => attrNode.name.name === 'className'
+
 // also delete className attribute
 const getClassNameIfExist = tagNode => {
-  const classNameNodeIndex = tagNode.attributes
-    .findIndex(attrNode => attrNode.name.name === 'className')
+  const classNameNodeIndex = tagNode.attributes.findIndex(findClassNameAttribute)
   const classNameNode = tagNode.attributes[classNameNodeIndex]
   if (classNameNode) {
     tagNode.attributes.splice(classNameNodeIndex, 1)
