@@ -51,13 +51,35 @@ const getValue = path => {
   return ast.expression
 }
 
+const getClassesWithGlobal = (classesCompositionExpression, globalClasses) => {
+  if (!globalClasses) return classesCompositionExpression
+  return t.binaryExpression(
+    '+',
+    classesCompositionExpression,
+    t.stringLiteral(globalClasses)
+  )
+}
+
+// also delete className attribute
+const getClassNameIfExist = tagNode => {
+  const classNameNodeIndex = tagNode.attributes
+    .findIndex(attrNode => attrNode.name.name === 'className')
+  const classNameNode = tagNode.attributes[classNameNodeIndex]
+  if (classNameNode) {
+    tagNode.attributes.splice(classNameNodeIndex, 1)
+    return classNameNode.value.value
+  }
+  return null
+}
+
 const JSXAttributeVisitor = path => {
   path.traverse({ JSXAttribute: JSXAttributeVisitor })
   if (path.node.name.name !== 'styleName') return
+  const className = getClassNameIfExist(path.parent)
   path.node.name.name = 'className'
 
   path.node.value = t.jSXExpressionContainer(
-    getValue(path)
+    getClassesWithGlobal(getValue(path), className)
   )
 }
 
