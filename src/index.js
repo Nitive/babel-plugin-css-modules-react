@@ -10,7 +10,7 @@ const splitClassesGenerator = (() => {
   return template(`(function () {
     var classes1 = SOURCE.split(' ')
     classes1.forEach(function (className) {
-      if (!Object.keys(styles).indexOf(className) === -1) {
+      if (Object.keys(styles).indexOf(className) === -1) {
         console.warn('Class ' + className + ' is not specified in your css file')
       }
     })

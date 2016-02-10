@@ -19,3 +19,6 @@ rules:
 
 ecmaFeatures:
   module: true
+
+plugins:
+  - react
