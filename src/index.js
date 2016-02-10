@@ -13,7 +13,7 @@ const splitClassesGenerator = (() => {
     var CLASSES = SOURCE.split(' ')
     CLASSES.forEach(function (className) {
       if (Object.keys(STYLES).indexOf(className) === -1) {
-        console.warn('Class ' + className + ' is not specified in your css file')
+        console.warn('Class .' + className + ' is not specified in your css file')
       }
     })
     return CLASSES${conventClassNames}
