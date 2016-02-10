@@ -3,9 +3,11 @@ import * as t from 'babel-types'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
+const conventClassNames = `.map(function(c) { return STYLES[c] }).join(' ')`
+
 const splitClassesGenerator = (() => {
   if (isProduction) {
-    return template(`SOURCE.split(' ').map(c => STYLES[c]).join(' ')`)
+    return template(`SOURCE.split(' ')${conventClassNames}`)
   }
   return template(`(function () {
     var CLASSES = SOURCE.split(' ')
@@ -14,7 +16,7 @@ const splitClassesGenerator = (() => {
         console.warn('Class ' + className + ' is not specified in your css file')
       }
     })
-    return CLASSES.map(c => STYLES[c]).join(' ')
+    return CLASSES${conventClassNames}
   })()`)
 })()
 
