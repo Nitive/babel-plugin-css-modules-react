@@ -1,5 +1,5 @@
 {
-  "name": "babel-plugin-react-css-modules",
+  "name": "babel-plugin-css-modules-react",
   "version": "0.0.0",
   "description": "",
   "main": "dist.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nitive/babel-plugin-react-css-modules.git"
+    "url": "git+https://github.com/nitive/babel-plugin-css-modules-react.git"
   },
   "keywords": [
     "babel",
@@ -27,14 +27,14 @@
   "author": "Maxim Samoilov @nitive",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nitive/babel-plugin-react-css-modules/issues"
+    "url": "https://github.com/nitive/babel-plugin-css-modules-react/issues"
   },
   "files": [
     "src",
     "example",
     "dist.js"
   ],
-  "homepage": "https://github.com/nitive/babel-plugin-react-css-modules#readme",
+  "homepage": "https://github.com/nitive/babel-plugin-css-modules-react#readme",
   "devDependencies": {
     "babel-cli": "^6.4.0",
     "babel-core": "^6.4.0",

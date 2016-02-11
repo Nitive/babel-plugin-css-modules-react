@@ -1,6 +1,6 @@
-# Babel Plugin React CSS Modules
-[![Circle CI](https://circleci.com/gh/Nitive/babel-plugin-react-css-modules.svg?style=svg)](https://circleci.com/gh/Nitive/babel-plugin-react-css-modules)
-[![codecov.io](https://codecov.io/github/Nitive/babel-plugin-react-css-modules/coverage.svg?branch=master)](https://codecov.io/github/Nitive/babel-plugin-react-css-modules?branch=master)
+# Babel Plugin CSS Modules React
+[![Circle CI](https://circleci.com/gh/Nitive/babel-plugin-css-modules-react.svg?style=svg)](https://circleci.com/gh/Nitive/babel-plugin-css-modules-react)
+[![codecov.io](https://codecov.io/github/Nitive/babel-plugin-css-modules-react/coverage.svg?branch=master)](https://codecov.io/github/Nitive/babel-plugin-css-modules-react?branch=master)
 
 
 ## What's the Problem?
