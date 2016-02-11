@@ -10,7 +10,7 @@
     "lint": "eslint src/* test/*.js",
     "pretest": "npm run lint --silent",
     "test:watch": "npm test -- -w",
-    "test": "NODE_ENV=production mocha --compilers js:babel-register test/*.js",
+    "test": "export NODE_ENV=production; mocha --compilers js:babel-register test/*.js",
     "example:build": "webpack --config example/webpack.conf.js",
     "example:watch": "npm run example -- -w"
   },
