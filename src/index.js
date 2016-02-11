@@ -1,7 +1,7 @@
 import template from 'babel-template'
 import * as t from 'babel-types'
 
-const isProduction = process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test'
 
 const conventClassNames = `.map(function(c) { return STYLES[c] }).join(' ')`
 
