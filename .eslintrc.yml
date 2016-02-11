@@ -10,6 +10,7 @@ env:
 rules:
   semi: [2, 'never']
   arrow-parens: [1, 'as-needed']
+  arrow-body-style: 0
   jsx-quotes: [2, 'prefer-single']
   id-length: 0
   no-console: 0
