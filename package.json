@@ -5,6 +5,7 @@
   "main": "dist.js",
   "scripts": {
     "build": "babel src/index.js -o dist.js",
+    "prepublish": "npm run build",
     "coverage": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha -- test/test.js",
     "lint": "eslint src/* test/*.js",
     "pretest": "npm run lint --silent",
