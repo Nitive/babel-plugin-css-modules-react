@@ -51,9 +51,6 @@ const Button = ({ children }) => (
 )
 ```
 
-### I have dinamicly calculated class names `styleName={cx('class-name')}`
-It is OK, it would work.
-
 ### Requirements
 You *must* keep your classes map inside `styles` variable
 
