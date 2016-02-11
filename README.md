@@ -22,7 +22,7 @@ class Button extends React.Component {
   }
 }
 ```
-Which would be rendered to:
+Will be converted into:
 ```
 import styles from './styles.css'
 
@@ -51,7 +51,7 @@ const Button = ({ children }) => (
 )
 ```
 
-### I have dinamicly calculated class names
+### I have dinamicly calculated class names `styleName={cx('class-name')}`
 It is OK, it would work.
 
 ### Requirements
