@@ -1,7 +1,7 @@
-class Test extends React.Component {
+var _styles = require('./styles.css');class Test extends React.Component {
   render() {
     return <div className={cx('some-class another-class').split(' ').map(function (c) {
-      return styles[c];
+      return _styles[c];
     }).join(' ')}>test</div>;
   }
 }

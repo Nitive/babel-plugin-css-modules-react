@@ -17,6 +17,7 @@ rules:
   no-multiple-empty-lines: [2, { max: 5 }]
   no-unused-expressions: 0
   no-param-reassign: [2, { props: false }]
+  func-names: 0
 
 ecmaFeatures:
   module: true

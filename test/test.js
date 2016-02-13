@@ -10,6 +10,7 @@ describe('Add return', () => {
   fs.readdirSync(fixturesDir).map(caseName => {
     if (caseName === '.DS_Store') return
     if (caseName.includes('[notest]')) return
+    // if (!caseName.includes('dec')) return
 
     it(caseName, () => {
       const fixtureDir = path.join(fixturesDir, caseName)
