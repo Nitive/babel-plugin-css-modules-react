@@ -13,7 +13,7 @@ webpack css-loader itself has several disadvantages:
 ### Babel Plugin React CSS Modules make all work for you
 
 #### Use classes as usual
-```
+```javascript
 import styles from './styles.css'
 
 class Button extends React.Component {
@@ -23,7 +23,7 @@ class Button extends React.Component {
 }
 ```
 Will be converted into:
-```
+```javascript
 import styles from './styles.css'
 
 class Button extends React.Component {
@@ -34,7 +34,7 @@ class Button extends React.Component {
 ```
 
 #### Easy use global CSS
-```
+```javascript
 import styles from './styles.css'
 
 const Button = ({ children }) => (
@@ -43,7 +43,7 @@ const Button = ({ children }) => (
 ```
 
 #### Get warnings when you are mistaken
-```
+```javascript
 import styles from './styles.css'
 
 const Button = ({ children }) => (
@@ -57,7 +57,7 @@ You *must* keep your classes map inside `styles` variable
 ## Future plans
 Load styles with decorator syntax
 
-```
+```javascript
 @modulize('./styles.css')
 class Button extends React.Component {
   render() {
