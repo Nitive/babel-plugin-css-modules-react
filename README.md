@@ -1,4 +1,6 @@
 # Babel Plugin CSS Modules React
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Nitive/babel-plugin-css-modules-react.svg)](https://greenkeeper.io/)
 [![Circle CI](https://circleci.com/gh/Nitive/babel-plugin-css-modules-react.svg?style=svg)](https://circleci.com/gh/Nitive/babel-plugin-css-modules-react)
 [![codecov.io](https://codecov.io/github/Nitive/babel-plugin-css-modules-react/coverage.svg?branch=master)](https://codecov.io/github/Nitive/babel-plugin-css-modules-react?branch=master)
 
